@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cs-api" />
+        <module name="cs-service" />
+        <module name="cs-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cs" target="1.8" />
+      <module name="cs-api" target="1.8" />
+      <module name="cs-service" target="1.8" />
+      <module name="cs-web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
