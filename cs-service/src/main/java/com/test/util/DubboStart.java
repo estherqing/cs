@@ -32,11 +32,10 @@ public class DubboStart extends AbstractIdleService {
 
     @Override
     protected void startUp() throws Exception {
-//        context = new ClassPathXmlApplicationContext("spring/cls-bss-context.xml");
-        context = new ClassPathXmlApplicationContext("classpath*:applicationContext*.xml");
+        context = new ClassPathXmlApplicationContext("classpath*:spring/applicationContext.xml");
         context.start();
         context.registerShutdownHook();
-        System.out.println("----------------jia-service provider service startedsuccessfully------------");
+        System.out.println("----------------cs-service provider service startedsuccessfully------------");
 
     }
 }
