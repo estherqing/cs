@@ -1,25 +1,24 @@
 package com.test.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class CommonQuestionType {
-    private Integer id;
+/**
+ * @author esther
+ * @create 2017-09-11 11:16
+ * 常见问题类别
+ */
 
-    private String name;
-
-    private String remark;
-
-    private Long userId;
-
-    private String userName;
-
-    private String userRealname;
-
-    private Byte status;
-
-    private Date createTime;
-
-    private Date modifyTime;
+public class CommonQuestionType implements Serializable {
+    private Integer id; // 主键ID
+    private String name; // 问题类别名称
+    private String remark; // 备注
+    private Long userId; // 录入人ID
+    private String userName; // 录入人手机号
+    private String userRealName; // 录入人姓名
+    private Short status; // 状态，1启用，0禁用
+    private Date createTime; // 创建时间
+    private Date modifyTime; // 修改时间
 
     public Integer getId() {
         return id;
@@ -34,7 +33,7 @@ public class CommonQuestionType {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public String getRemark() {
@@ -42,7 +41,7 @@ public class CommonQuestionType {
     }
 
     public void setRemark(String remark) {
-        this.remark = remark == null ? null : remark.trim();
+        this.remark = remark;
     }
 
     public Long getUserId() {
@@ -58,22 +57,22 @@ public class CommonQuestionType {
     }
 
     public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+        this.userName = userName;
     }
 
-    public String getUserRealname() {
-        return userRealname;
+    public String getUserRealName() {
+        return userRealName;
     }
 
-    public void setUserRealname(String userRealname) {
-        this.userRealname = userRealname == null ? null : userRealname.trim();
+    public void setUserRealName(String userRealName) {
+        this.userRealName = userRealName;
     }
 
-    public Byte getStatus() {
+    public Short getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(Short status) {
         this.status = status;
     }
 

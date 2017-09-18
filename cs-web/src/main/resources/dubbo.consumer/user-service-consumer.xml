@@ -7,5 +7,5 @@
        http://code.alibabatech.com/schema/dubbo
        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     <!--使用 dubbo 协议实现定义好的 api.IUserService 接口-->
-    <dubbo:service interface="com.test.api.IUserService" ref="userService" protocol="dubbo" group="cs" version="1.0.0"/>
+    <dubbo:reference interface="com.test.api.IUserService" id="userService" protocol="dubbo"  group="cs" version="1.0.0"/>
 </beans>

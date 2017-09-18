@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="  
+          http://www.springframework.org/schema/beans  
+          http://www.springframework.org/schema/beans/spring-beans.xsd  
+          http://www.springframework.org/schema/context  
+          http://www.springframework.org/schema/context/spring-context.xsd  
+          http://www.springframework.org/schema/mvc      
+          http://www.springframework.org/schema/mvc/spring-mvc.xsd
+          http://www.springframework.org/schema/util   
+          http://www.springframework.org/schema/util/spring-util.xsd">
+	<!-- 注解探测器 -->
+    <context:property-placeholder location="classpath*:resources.properties" ignore-unresolvable="true"/>
+
+	<context:component-scan base-package="com.test">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<!-- annotation默认的方法映射适配器,可不写，但当有其他组件定义时，一定要写。 -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="webBindingInitializer">
+            <bean class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+                <property name="conversionService">
+                    <bean class="org.springframework.format.support.FormattingConversionServiceFactoryBean"></bean>
+                </property>
+            </bean>
+        </property>
+        <property name="messageConverters">
+            <list>
+                <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                    <property name="supportedMediaTypes">
+                        <list>
+                            <value>application/json; charset=UTF-8</value>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
+
+	<!-- velocity -->
+	<!-- <bean id="viewResolver"
+		class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
+		<property name="suffix" value=".html" />
+		<property name="contentType" value="text/html;charset=UTF-8"></property>
+		<property name="exposeSessionAttributes" value="true"></property>
+		<property name="toolboxConfigLocation" value="WEB-INF/velocity-tools.xml" />
+	</bean> -->
+	<!-- <bean id="velocityConfigurer"
+		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+		<property name="resourceLoaderPath">
+			<value>/html/</value>
+		</property>
+		<property name="velocityProperties">
+			<props>
+				<prop key="input.encoding">UTF-8</prop>
+				<prop key="output.encoding">UTF-8</prop>
+				<prop key="velocimacro.library">public/macros.vm</prop>
+				<prop key="velocimacro.library.autoreload">true</prop>
+			</props>
+		</property>
+	</bean> -->
+	
+	<!--<mvc:interceptors>
+		<bean class="com.za.web.interceptor.SecurityInterceptor"></bean>
+		<bean class="com.za.web.interceptor.AuthorizationInterceptor"></bean>
+		<bean class="com.za.web.interceptor.DataInitInterceptor"></bean>
+	</mvc:interceptors>-->
+
+	<!--<mvc:interceptors>-->
+		<!--<mvc:interceptor>-->
+			<!--<mvc:mapping path="/**"/>-->
+			<!--<mvc:exclude-mapping path="/page/**"/>-->
+			<!--<mvc:exclude-mapping path="/login"/>-->
+			<!--<bean class="com.za.cls.admin.web.base.AuthorizationInterceptor"/>-->
+    	<!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
+    
+	<!-- 当在web.xml 中 DispatcherServlet使用 <url-pattern>/</url-pattern> 映射时，能映射静态资源 -->
+	<mvc:default-servlet-handler />
+	
+	<!-- 总错误处理 <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 
+		<property name="defaultErrorView"> <value>/common/error</value> </property>
+		<property name="defaultStatusCode"> <value>404</value> </property> <property 
+		name="warnLogCategory"> <value>org.springframework.web.servlet.handler.SimpleMappingExceptionResolver</value> 
+		</property> </bean> -->
+</beans>

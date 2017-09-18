@@ -2,6 +2,7 @@ package com.test.dao;
 
 import com.test.examples.CommonQuestionExample;
 import com.test.model.CommonQuestion;
+import com.test.util.Paging;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -34,4 +35,20 @@ public interface CommonQuestionMapper {
     int updateByPrimaryKeyWithBLOBs(CommonQuestion record);
 
     int updateByPrimaryKey(CommonQuestion record);
+
+    int add(CommonQuestion commonQuestion);
+
+    int update(CommonQuestion commonQuestion);
+
+    int delete(Long id);
+
+    CommonQuestion get(Long id);
+
+    int updateCount(Long id);
+
+    int updateStatus(@Param("id") Long id,@Param("status") Short status);
+
+    int getCount(@Param("title") String title,@Param("content") String content,@Param("typeId") Integer typeId,@Param("status") Short status);
+
+    List<CommonQuestion> getList(@Param("title") String title,@Param("content") String content,@Param("typeId") Integer typeId,@Param("status") Short status,@Param("page") Paging page);
 }

@@ -1,4 +1,4 @@
-package com.test.util.mybatis.interceptor;
+package com.test.util;
 
 import java.io.Serializable;
 

@@ -1,41 +1,32 @@
 package com.test.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class CommonQuestion {
-    private Long id;
+/**
+ * @author esther
+ * @create 2017-09-11 11:16
+ * 常见问题
+ */
 
-    private Integer typeId;
-
-    private String typeName;
-
-    private String title;
-
-    private String phone;
-
-    private Long browseCount;
-
-    private Date browseTime;
-
-    private Boolean isTop;
-
-    private Byte sortOrder;
-
-    private String remark;
-
-    private Long userId;
-
-    private String userName;
-
-    private String userRealname;
-
-    private Byte status;
-
-    private Date createTime;
-
-    private Date modifyTime;
-
-    private String content;
+public class CommonQuestion  implements Serializable{
+    private Long id; // 主键ID
+    private Integer typeId; // 问题类别ID
+    private String typeName; // 问题类别名称
+    private String title; // 标题
+    private String content; // 内容
+    private String phone; // 咨询电话
+    private Long browseCount; // 浏览次数
+    private Date browseTime; // 最新浏览时间
+    private Short isTop; // 是否置顶
+    private Short sortOrder; // 显示顺序
+    private String remark; // 备注
+    private Long userId; // 录入人ID
+    private String userName; // 录入人手机号
+    private String userRealName; // 录入人姓名
+    private Short status; // 状态，1启用，0禁用
+    private Date createTime; // 创建时间
+    private Date modifyTime; // 修改时间
 
     public Long getId() {
         return id;
@@ -58,7 +49,7 @@ public class CommonQuestion {
     }
 
     public void setTypeName(String typeName) {
-        this.typeName = typeName == null ? null : typeName.trim();
+        this.typeName = typeName;
     }
 
     public String getTitle() {
@@ -66,7 +57,15 @@ public class CommonQuestion {
     }
 
     public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
+        this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getPhone() {
@@ -74,7 +73,7 @@ public class CommonQuestion {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+        this.phone = phone;
     }
 
     public Long getBrowseCount() {
@@ -93,19 +92,19 @@ public class CommonQuestion {
         this.browseTime = browseTime;
     }
 
-    public Boolean getIsTop() {
+    public Short getIsTop() {
         return isTop;
     }
 
-    public void setIsTop(Boolean isTop) {
+    public void setIsTop(Short isTop) {
         this.isTop = isTop;
     }
 
-    public Byte getSortOrder() {
+    public Short getSortOrder() {
         return sortOrder;
     }
 
-    public void setSortOrder(Byte sortOrder) {
+    public void setSortOrder(Short sortOrder) {
         this.sortOrder = sortOrder;
     }
 
@@ -114,7 +113,7 @@ public class CommonQuestion {
     }
 
     public void setRemark(String remark) {
-        this.remark = remark == null ? null : remark.trim();
+        this.remark = remark;
     }
 
     public Long getUserId() {
@@ -130,22 +129,22 @@ public class CommonQuestion {
     }
 
     public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+        this.userName = userName;
     }
 
-    public String getUserRealname() {
-        return userRealname;
+    public String getUserRealName() {
+        return userRealName;
     }
 
-    public void setUserRealname(String userRealname) {
-        this.userRealname = userRealname == null ? null : userRealname.trim();
+    public void setUserRealName(String userRealName) {
+        this.userRealName = userRealName;
     }
 
-    public Byte getStatus() {
+    public Short getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(Short status) {
         this.status = status;
     }
 
@@ -163,13 +162,5 @@ public class CommonQuestion {
 
     public void setModifyTime(Date modifyTime) {
         this.modifyTime = modifyTime;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
     }
 }
