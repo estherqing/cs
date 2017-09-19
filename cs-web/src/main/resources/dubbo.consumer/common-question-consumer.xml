@@ -6,7 +6,9 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://code.alibabatech.com/schema/dubbo
        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-    <dubbo:reference id="commonQuestionTypeService" interface="com.test.api.ICommonQuestionTypeService"  group="cs" version="1.0.0"/>
+    <dubbo:reference id="commonQuestionTypeService" interface="com.test.api.ICommonQuestionTypeService"
+                     group="${dubbo.test.group}" version="${dubbo.test.version}"/>
 
-    <dubbo:reference id="commonQuestionService" interface="com.test.api.ICommonQuestionService"  group="cs" version="1.0.0"/>
+    <dubbo:reference id="commonQuestionService" interface="com.test.api.ICommonQuestionService"
+                     group="${dubbo.test.group}" version="${dubbo.test.version}"/>
 </beans>

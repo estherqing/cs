@@ -9,9 +9,9 @@
     <!--定义了提供方应用信息，用于计算依赖关系；在 dubbo-admin 或 dubbo-monitor 会显示这个名字，方便辨识-->
     <dubbo:application name="cs-service" owner="programmer" organization="dubbox"/>
     <!--使用 zookeeper 注册中心暴露服务，注意要先开启 zookeeper-->
-    <dubbo:registry address="zookeeper://localhost:2181" protocol="zookeeper"/>
+    <dubbo:registry address="${dubbo.test.address}" protocol="zookeeper"/>
     <!-- 用dubbo协议在20880端口暴露服务 -->
-    <dubbo:protocol name="dubbo" port="20880" />
+    <dubbo:protocol name="dubbo" port="${dubbo.test.port}}" />
 
     <import resource="classpath*:/dubbo.provider/*.xml"/>
 </beans>
