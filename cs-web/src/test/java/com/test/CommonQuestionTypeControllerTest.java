@@ -15,7 +15,7 @@ public class CommonQuestionTypeControllerTest extends AbstractControllerTest {
 
     @Test
     public void typeAdd() throws Exception {
-        String url = "http://localhost:9098/cs/question/type/add";
+        String url = "http://localhost:9098/cs/cs/question/type/add";
         Map<String, String> map = new HashMap<>();
         map.put("name", "车贷");
         System.out.println("body=" + test(url, map));
@@ -23,7 +23,7 @@ public class CommonQuestionTypeControllerTest extends AbstractControllerTest {
 
     @Test
     public void typeUpdate() throws Exception {
-        String url = "http://localhost:9098/question/type/update";
+        String url = "http://localhost:9098/cs/question/type/update";
         Map<String, String> map = new HashMap<>();
         map.put("id","1");
         map.put("name", "征信1");
@@ -33,7 +33,7 @@ public class CommonQuestionTypeControllerTest extends AbstractControllerTest {
 
     @Test
     public void typeDelete() throws Exception {
-        String url = "http://localhost:9098/question/type/delete";
+        String url = "http://localhost:9098/cs/question/type/delete";
         Map<String, String> map = new HashMap<>();
         map.put("id", "1");
         System.out.println("body=" + test(url, map));
@@ -41,7 +41,7 @@ public class CommonQuestionTypeControllerTest extends AbstractControllerTest {
 
     @Test
     public void typeGet() throws Exception {
-        String url = "http://localhost:9098/question/type/get";
+        String url = "http://localhost:9098/cs/question/type/get";
         Map<String, String> map = new HashMap<>();
         map.put("id", "1");
         System.out.println("body=" + test(url, map));
@@ -49,7 +49,7 @@ public class CommonQuestionTypeControllerTest extends AbstractControllerTest {
 
     @Test
     public void typeList() throws Exception {
-        String url = "http://localhost:9098/question/type/list";
+        String url = "http://localhost:9098/cs/question/type/list";
         Map<String, String> map = new HashMap<>();
        // map.put("name", "");
         map.put("status","1");
@@ -58,7 +58,7 @@ public class CommonQuestionTypeControllerTest extends AbstractControllerTest {
     
     @Test
     public void allList() throws Exception{
-        String url = "http://localhost:9098/question/type/allList";
+        String url = "http://localhost:9098/cs/question/type/allList";
         Map<String, String> map = new HashMap<>();
         // map.put("name", "");
        // map.put("status","1");

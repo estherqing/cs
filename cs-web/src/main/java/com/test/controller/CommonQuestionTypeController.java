@@ -41,7 +41,6 @@ public class CommonQuestionTypeController extends AbstractBaseController {
         commonQuestionType.setModifyTime(new Date());
         Integer rs = commonQuestionTypeService.add(commonQuestionType);
         if (rs != null && rs > 0) {
-            System.out.println(WebUtil.getSuccessJson("新增成功！"));
             return WebUtil.getSuccessJson("新增成功！");
         }
         return WebUtil.getFailureJson("新增失败！");

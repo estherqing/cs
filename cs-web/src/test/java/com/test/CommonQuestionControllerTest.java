@@ -16,7 +16,7 @@ public class CommonQuestionControllerTest extends AbstractControllerTest {
 
     @Test
     public void add() throws Exception {
-        String url = "http://localhost:9098/question/add";
+        String url = "http://localhost:9098/cs/question/add";
         Map<String, String> map = new HashMap<>();
         map.put("title", "标题");
         map.put("content", "测试2<img src=\"http:\\zacdn-image.cgw360.com\\cgw360\\cls\\car_dealer\\7517bf18-526a-4ba4-ac23-05de09f57a63.jpg\">");
@@ -28,7 +28,7 @@ public class CommonQuestionControllerTest extends AbstractControllerTest {
 
     @Test
     public void update() throws Exception {
-        String url = "http://localhost:9098/question/update";
+        String url = "http://localhost:9098/cs/question/update";
         Map<String, String> map = new HashMap<>();
         map.put("id", "1");
         map.put("title", "测试标题标题");
@@ -41,7 +41,7 @@ public class CommonQuestionControllerTest extends AbstractControllerTest {
 
     @Test
     public void delete() throws Exception {
-        String url = "http://localhost:9098/question/delete";
+        String url = "http://localhost:9098/cs/question/delete";
         Map<String, String> map = new HashMap<>();
         map.put("id", "3");
         System.out.println("body=" + test(url, map));
@@ -49,7 +49,7 @@ public class CommonQuestionControllerTest extends AbstractControllerTest {
 
     @Test
     public void get() throws Exception {
-        String url = "http://localhost:9098/question/get";
+        String url = "http://localhost:9098/cs/question/get";
         Map<String, String> map = new HashMap<>();
         map.put("id", "1");
         System.out.println("body=" + test(url, map));
@@ -57,7 +57,7 @@ public class CommonQuestionControllerTest extends AbstractControllerTest {
 
     @Test
     public void list() throws Exception {
-        String url = "http://localhost:9098/question/list";
+        String url = "http://localhost:9098/cs/question/list";
         Map<String, String> map = new HashMap<>();
         map.put("title", "测试");
         map.put("content", "测试");
@@ -69,14 +69,14 @@ public class CommonQuestionControllerTest extends AbstractControllerTest {
     @Test
     @Deprecated
     public void upload() {
-        String url = "http://localhost:9098/question/upload";
+        String url = "http://localhost:9098/cs/question/upload";
         String fileName = "E://head1.jpg;E://head.jpg";
         sendFilesPost(url, fileName);
     }
 
     @Test
     public void enable() throws Exception {
-        String url = "http://localhost:9098/question/enOrDisable";
+        String url = "http://localhost:9098/cs/question/enOrDisable";
         Map<String, String> map = new HashMap<>();
         map.put("id", "1");
         map.put("status", "0");
@@ -86,7 +86,7 @@ public class CommonQuestionControllerTest extends AbstractControllerTest {
     @Test
     @Deprecated
     public void list2() throws Exception {
-        String url = "http://localhost:9098/organization/brachCompany";
+        String url = "http://localhost:9098/cs/organization/brachCompany";
         Map<String, String> map = new HashMap<>();
         System.out.println("body=" + test(url, map));
     }

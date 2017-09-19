@@ -15,8 +15,6 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
-import org.apache.log4j.Level;
-import org.apache.log4j.LogManager;
 
 import java.io.File;
 import java.io.IOException;
@@ -51,7 +49,7 @@ public class AbstractControllerTest {
         params.add(new BasicNameValuePair("password", password));
         HttpEntity entity = new UrlEncodedFormEntity(params, Charset.defaultCharset());
 
-        LogManager.getRootLogger().setLevel(Level.ALL);
+        //LogManager.getRootLogger().setLevel(Level.ALL);
         post.setEntity(entity);
 
         // 发送请求

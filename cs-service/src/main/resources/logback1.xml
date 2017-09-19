@@ -10,7 +10,6 @@
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
     </root>
-
     <logger name="java.sql.PreparedStatement" value="debug" />
     <logger name="java.sql.Connection" value="debug" />
     <logger name="java.sql.Statement" value="debug" />
@@ -23,8 +22,7 @@
     <logger name="com.test.dao.CommonQuestionTypeMapper" level="DEBUG" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
-    <logger name="com.test.dao" level="DEBUG" additivity="false">
-    </logger>
+    <logger name="com.test.dao" level="DEBUG"/>
 
     <logger name="com.test" level="DEBUG"/>
     <logger name="com.alibaba" level="ERROR"/>
