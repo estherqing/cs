@@ -7,7 +7,7 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <context:property-placeholder location="classpath*:/cs.conf" ignore-unresolvable="true"/>
+    <context:property-placeholder location="classpath*:/cs.conf,/datasource.conf" ignore-unresolvable="true"/>
     <context:annotation-config/>
     <context:component-scan base-package="com.test" annotation-config="true"/>
     <aop:aspectj-autoproxy proxy-target-class="true"/>

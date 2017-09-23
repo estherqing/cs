@@ -295,28 +295,57 @@
         <profile>
             <id>development</id>
             <properties>
-                <build.profile.id>development</build.profile.id>
+                <!--<build.profile.id>development</build.profile.id>-->
+                <profiles.active>development</profiles.active>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <build>
+                <filters>
+                    <filter>profiles/profile-development.properties</filter>
+                </filters>
+            </build>
         </profile>
         <profile>
             <id>test</id>
             <properties>
-                <build.profile.id>test</build.profile.id>
+                <!--<build.profile.id>test</build.profile.id>-->
+                <profiles.active>test</profiles.active>
             </properties>
+            <build>
+                <filters>
+                    <filter>profiles/profile-test.properties</filter>
+                </filters>
+            </build>
         </profile>
         <profile>
             <id>product</id>
             <properties>
-                <build.profile.id>product</build.profile.id>
+                <!--<build.profile.id>product</build.profile.id>-->
+                <profiles.active>product</profiles.active>
             </properties>
+            <build>
+                <filters>
+                    <filter>profiles/profile-product.properties</filter>
+                </filters>
+            </build>
         </profile>
     </profiles>
 
     <build>
         <plugins>
+            <!-- Mybatis generator代码生成插件 配置 -->
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>${plugin.mybatis.generator}</version>
+                <configuration>
+                    <configurationFile>${mybatis.generator.generatorConfig.xml}</configurationFile>
+                    <overwrite>true</overwrite>
+                    <verbose>true</verbose>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -338,7 +367,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
                 <executions>
                     <execution>
                         <id>default-jar</id>
@@ -351,27 +379,8 @@
                                 <exclude>**/*.conf</exclude>
                                 <exclude>**/*.xml</exclude>
                                 <exclude>**/*.properties</exclude>
-                                <exclude>spring/**/*.xml</exclude>
-                                <exclude>dubbo/provider/*.xml</exclude>
-                                <exclude>mapper/**/*.xml</exclude>
                             </excludes>
                         </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.7</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>resources</goal>
-                        </goals>
                     </execution>
                 </executions>
             </plugin>
@@ -401,15 +410,15 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.8.1</version>
                 <configuration>
                     <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>
-        <filters>
-            <filter>profiles/profile-${build.profile.id}.properties</filter>
-        </filters>
+        <!--下面的filters可以注释掉，因为上面的profile已经标明了。-->
+        <!--<filters>-->
+            <!--<filter>src/main/resources/spring/profile-${build.profile.id}.properties</filter>-->
+        <!--</filters>-->
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -432,7 +441,6 @@
                 </includes>
                 <filtering>true</filtering>
             </resource>
-
         </resources>
     </build>
     <distributionManagement>
