@@ -6,5 +6,5 @@ package com.test.dao;
  * $DESCRIPTION}
  */
 
-public class UserMapper {
+public interface UserMapper {
 }

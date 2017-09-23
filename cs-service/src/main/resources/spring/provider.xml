@@ -10,8 +10,8 @@
     <dubbo:application name="cs-service" owner="programmer" organization="dubbox"/>
     <!--使用 zookeeper 注册中心暴露服务，注意要先开启 zookeeper-->
     <dubbo:registry address="${dubbo.test.address}" protocol="zookeeper"/>
-    <!-- 用dubbo协议在20880端口暴露服务 -->
-    <dubbo:protocol name="dubbo" port="${dubbo.test.port}}" />
+    <!-- 用dubbo协议在20784端口暴露服务 -->
+    <dubbo:protocol name="dubbo" port="${dubbo.test.port}" />
 
     <import resource="classpath*:/dubbo.provider/*.xml"/>
 </beans>

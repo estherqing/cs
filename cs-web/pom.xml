@@ -513,8 +513,8 @@
                 <includes>
                     <include>*.conf</include>
                     <include>*.properties</include>
-                    <include>spring/consumer.xml</include>
-                    <include>dubbo/consumer/*.xml</include>
+                    <!--<include>spring/consumer.xml</include>-->
+                    <!--<include>dubbo/consumer/*.xml</include>-->
                 </includes>
                 <filtering>true</filtering>
             </resource>

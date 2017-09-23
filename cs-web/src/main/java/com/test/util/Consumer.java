@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Consumer {
     public static void main(String[] args) {
         //测试常规服务
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/consumer.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/applicationContext.xml");
         context.start();
         System.out.println("consumer start");
         IUserService userService1 = context.getBean(IUserService.class);
